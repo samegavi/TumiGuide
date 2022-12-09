@@ -1,0 +1,34 @@
+{% extends "guide/base.html" %}
+
+{% block content %}
+    
+<div class="container">
+  <br>
+  {% if messages %}
+  <!--<ul class="messages">-->
+    {% for message in messages %}
+    <p style="color: green">{{ message }}</p>
+    {% endfor %}
+  <!--</ul>-->
+  {% endif %}
+  
+
+  <div>
+    <p>
+     <strong>Title:</strong>{{place.title}}
+    </p>
+  </div>
+
+
+  <div>
+    <a href="{% url 'guide:place_update' place.id %}">Edit this place</a> |
+    <a href="{% url 'guide:place_index' %}">Back to places</a>
+
+    <form method="post" action="{% url 'guide:place_delete' place.id %}"> {% csrf_token %}
+      <button type="submit">Destroy this place</button>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

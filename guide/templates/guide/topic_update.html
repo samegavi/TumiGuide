@@ -4,9 +4,8 @@
     
     <div class="container">
         <br>
-
-        <h1>New topic</h1>
-        
+        <h1>Editing topic</h1>
+  
         <form method="POST"> {% csrf_token%}
             {{ form.as_p }}
             <input type="submit" class="btn btn-primary" value="Submit">
@@ -14,7 +13,8 @@
   
         <br>
         <div>
-            <a href="{% url 'guide:topic_index' %}">Back to topics</a>
+            <a href="{{topic.get_absolute_url}}">Show this topic</a> | <!-- links to detail page without message -->
+            <a href="{% url 'guide:topic_index' %}">Back to topics</a> <!-- links to All topics page without message -->
         </div>
     </div>
 

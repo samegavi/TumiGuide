@@ -1,0 +1,248 @@
+{% extends "guide/base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+    {% if messages %}
+    <!--<ul class="messages">-->
+        {% for message in messages %}
+        <p style="color: green">{{ message }}</p>
+        {% endfor %}
+    <!--</ul>-->
+    {% endif %}
+
+    <h1>Entries</h1>
+
+    <div> <!--delete id? id="topics"-->
+        <a href="{% url 'guide:entry' %}">New entry</a> <!-- links to entry create view -->
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th> <!--scope="col"-->
+                    <th scope="col">Place</th> <!--scope="col"-->
+                    <th scope="col">Topic</th> <!--scope="col"-->
+                    <th scope="col">Title</th> <!--scope="col"-->
+                    <th scope="col">Details</th> <!--scope="col"-->
+                    <th scope="col"></th> <!--scope="col"-->
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in object_list %}
+                <tr>
+                    <th scope="row">{{ entry.pk }}</th> <!---->
+                    <th class="text-muted">{{ entry.place }}</th> <!---->
+                    <th class="text-muted">{{ entry.topic }}</th> <!--class="text-muted"-->
+                    <th class="text-muted">{{ entry.title }}</th> <!--class="text-muted"-->
+                    <th class="text-muted">{{ entry.details }}</th> <!--class="text-muted"-->
+                    <th><a href="{{entry.get_absolute_url}}">Show this entry</a></th>
+                </tr>
+                {% endfor %} 
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <br>
+    <p style="color: green"></p>
+
+<h1>Entries</h1>
+
+<div id="entries">
+<a href="/entries/new">New entry</a>
+<table class="table table-striped ">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Place</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Title</th>
+      <th scope="col">Details</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+   <tr>
+   <th scope="row">3</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Restaurants &amp; Bars</th>
+   <th class="text-muted">It's my kitchen</th>
+   <th class="text-muted">Local and Chinese fo...</th>
+   <th><a href="/entries/3">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">4</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Manhyia Palace(Ashanti king's Palace</th>
+   <th class="text-muted">To know more about t...</th>
+   <th><a href="/entries/4">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">5</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Armed forces museum </th>
+   <th class="text-muted">The armed forces mus...</th>
+   <th><a href="/entries/5">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">6</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Central market/Kejetia</th>
+   <th class="text-muted">It the west Africa's...</th>
+   <th><a href="/entries/6">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">7</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">KNUST botanical garden </th>
+   <th class="text-muted">The Kwame Nkrumah Un...</th>
+   <th><a href="/entries/7">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">8</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Massage </th>
+   <th class="text-muted">The massage center i...</th>
+   <th><a href="/entries/8">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">9</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Culture Center </th>
+   <th class="text-muted">Mini museum (ethnogr...</th>
+   <th><a href="/entries/9">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">10</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Komfo Anokye Sword </th>
+   <th class="text-muted">The immovable Sword ...</th>
+   <th><a href="/entries/10">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">11</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Swimming </th>
+   <th class="text-muted">Golden Tulip hotel,t...</th>
+   <th><a href="/entries/11">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">12</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Rattray park</th>
+   <th class="text-muted">It a nice park with ...</th>
+   <th><a href="/entries/12">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">13</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Brass Shop</th>
+   <th class="text-muted">Banner Agyemang,0243...</th>
+   <th><a href="/entries/13">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">14</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Adawomase Village </th>
+   <th class="text-muted">Ecovillage to learn ...</th>
+   <th><a href="/entries/14">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">15</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Adawomase Village </th>
+   <th class="text-muted">Ecovillage to learn ...</th>
+   <th><a href="/entries/15">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">16</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Ntonso Village </th>
+   <th class="text-muted">Learn about the Adin...</th>
+   <th><a href="/entries/16">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">17</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">Bobiri Wildlife Sanctuary </th>
+   <th class="text-muted">Nice beautiful lands...</th>
+   <th><a href="/entries/17">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">18</th>
+   <th class="text-muted">Kumasi</th>
+   <th class="text-muted">Sites to visit</th>
+   <th class="text-muted">BRONZE MAKING FACTORY TOUR </th>
+   <th class="text-muted">If you are intereste...</th>
+   <th><a href="/entries/18">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">19</th>
+   <th class="text-muted">Accra</th>
+   <th class="text-muted">Accomodation</th>
+   <th class="text-muted">Harriet</th>
+   <th class="text-muted">test test...</th>
+   <th><a href="/entries/19">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">21</th>
+   <th class="text-muted">Accra</th>
+   <th class="text-muted">Accomodation</th>
+   <th class="text-muted">fjoiejofw</th>
+   <th class="text-muted">kpwjefpe...</th>
+   <th><a href="/entries/21">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">22</th>
+   <th class="text-muted">Accra</th>
+   <th class="text-muted">Accomodation</th>
+   <th class="text-muted">imho</th>
+   <th class="text-muted">gyugu...</th>
+   <th><a href="/entries/22">Show this entry</a></th>
+   </tr> 
+   <tr>
+   <th scope="row">23</th>
+   <th class="text-muted">Accra</th>
+   <th class="text-muted">Accomodation</th>
+   <th class="text-muted">blow</th>
+   <th class="text-muted">klnwne...</th>
+   <th><a href="/entries/23">Show this entry</a></th>
+   </tr> 
+  </tbody>
+
+
+
+
+    
+  
+
+</table></div></div>

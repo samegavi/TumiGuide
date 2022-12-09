@@ -1,0 +1,21 @@
+{% extends "guide/base.html" %}
+
+{% block content %}
+    
+    <div class="container">
+        <br>
+        <h1>Editing entry</h1>
+  
+        <form method="POST"> {% csrf_token%}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Update Entry">
+        </form>
+  
+        <br>
+        <div>
+            <a href="{{entry.get_absolute_url}}">Show this entry</a> | <!-- links to detail page without message -->
+            <a href="{% url 'guide:entry_index' %}">Back to entries</a> <!-- links to All topics page without message -->
+        </div>
+    </div>
+
+{% endblock %}
