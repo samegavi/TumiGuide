@@ -1,0 +1,43 @@
+{% extends "guide/base.html" %}
+
+{% block content %}
+    
+<div class="container">
+  <br>
+  {% if messages %}
+  <!--<ul class="messages">-->
+    {% for message in messages %}
+    <p style="color: green">{{ message }}</p>
+    {% endfor %}
+  <!--</ul>-->
+  {% endif %}
+  <!--<p style="color: green">Topic was successfully created.</p>-->
+
+  <div>
+    <p>
+    <strong>Title:</strong> {{entry.title}}
+    </p>
+    <p>
+    <strong>Details:</strong> {{entry.details}}
+    </p>
+    <p>
+    <strong>Place:</strong> {{entry.place}}
+    </p>
+    <p>
+    <strong>Topic:</strong> {{entry.topic}}
+    </p>
+  </div>
+
+
+  <div>
+    <a href="{% url 'guide:entry_update' entry.id %}">Edit this entry</a> | <!-- link to update view page -->
+    <a href="{% url 'guide:entry_index' %}">Back to entries</a>
+
+    <form method="POST" action="{% url 'guide:entry_delete' entry.id %}"> {% csrf_token %} <!--not sure what I'm doing-->
+      <button type="submit">Destroy this entry</button>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

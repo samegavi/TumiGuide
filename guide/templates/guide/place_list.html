@@ -1,0 +1,29 @@
+{% extends "guide/base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+    {% if messages %}
+    <!--<ul class="messages">-->
+        {% for message in messages %}
+        <p style="color: green">{{ message }}</p>
+        {% endfor %}
+    <!--</ul>-->
+    {% endif %}
+
+    <h1>Places</h1>
+
+    <div> <!--delete id? id="topics"-->
+        {% for place in object_list %}
+        <div> <!--delete id?  id="topic_1"-->
+            <p><strong>Title:</strong> {{ place.title }}</p>
+        </div>
+        <p><a href="{{place.get_absolute_url}}">Show this place</a></p> <!-- links to topic detail view -->
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'guide:place' %}">New place</a> <!-- links to topic create view -->
+</div>
+
+{% endblock %}

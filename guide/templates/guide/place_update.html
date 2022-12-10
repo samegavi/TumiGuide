@@ -4,16 +4,17 @@
     
     <div class="container">
         <br>
-        <h1>New place</h1>
+        <h1>Editing place</h1>
   
         <form method="POST"> {% csrf_token%}
             {{ form.as_p }}
-            <input type="submit" class="btn btn-primary" value="Create Place">
+            <input type="submit" class="btn btn-primary" value="Submit">
         </form>
-        
+  
         <br>
         <div>
-            <a href="{% url 'guide:place_index' %}">Back to places</a>
+            <a href="{{place.get_absolute_url}}">Show this place</a> |
+            <a href="{% url 'guide:place_index' %}">Back to places</a> 
         </div>
     </div>
 
